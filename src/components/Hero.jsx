@@ -1,5 +1,6 @@
 import Spline from '@splinetool/react-spline';
-import { ArrowRight, Star } from 'lucide-react';
+import { ArrowRight, Star, Compass } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export default function Hero() {
   return (
@@ -14,6 +15,39 @@ export default function Hero() {
 
       {/* Soft neon overlay that doesn't block interaction */}
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/60 via-violet-900/30 to-black/70" />
+
+      {/* Animated Scout Emblem (floating compass) */}
+      <motion.div
+        aria-hidden="true"
+        className="pointer-events-none absolute right-6 top-20 hidden md:block"
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+      >
+        <motion.div
+          className="relative h-28 w-28"
+          animate={{ rotate: 360 }}
+          transition={{ repeat: Infinity, duration: 22, ease: 'linear' }}
+        >
+          <div className="absolute inset-0 rounded-full bg-gradient-to-br from-fuchsia-500/15 to-indigo-600/15 blur" />
+          <div className="absolute inset-2 rounded-full border border-fuchsia-400/40" />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="relative inline-flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-fuchsia-600 to-indigo-600 text-white shadow-lg">
+              <Compass className="h-8 w-8" />
+              <span className="sr-only">Scout emblem</span>
+            </div>
+          </div>
+          {/* Orbiting glow */}
+          <motion.span
+            className="absolute -right-1 top-1 h-3 w-3 rounded-full bg-fuchsia-300 shadow-[0_0_16px_4px_rgba(217,70,239,0.6)]"
+            animate={{ y: [0, -6, 0, 6, 0] }}
+            transition={{ repeat: Infinity, duration: 6, ease: 'easeInOut' }}
+          />
+        </motion.div>
+        <div className="mt-3 select-none rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs text-white/80 shadow">
+          Scout Mode: Active
+        </div>
+      </motion.div>
 
       {/* Content */}
       <div className="relative z-10 h-full flex items-center">
