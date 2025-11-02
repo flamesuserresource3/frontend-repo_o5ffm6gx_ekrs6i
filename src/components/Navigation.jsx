@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import { Menu, X, Compass, Leaf } from 'lucide-react';
+import { Menu, X, Rocket, Sparkles } from 'lucide-react';
 
 export default function Navigation() {
   const [open, setOpen] = useState(false);
 
   const links = [
     { href: '#work', label: 'Work' },
-    { href: '#values', label: 'Values' },
+    { href: '#values', label: 'Capabilities' },
     { href: '#contact', label: 'Contact' },
   ];
 
@@ -17,15 +17,15 @@ export default function Navigation() {
           <div className="flex items-center justify-between">
             <a href="#home" className="flex items-center gap-2 select-none">
               <div className="relative">
-                <span className="absolute -inset-1 rounded-full bg-green-500/30 blur"></span>
-                <div className="relative inline-flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-green-600 to-emerald-500 text-white shadow">
-                  <Compass className="h-5 w-5" />
+                <span className="absolute -inset-1 rounded-full bg-fuchsia-500/30 blur" />
+                <div className="relative inline-flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-fuchsia-600 to-indigo-600 text-white shadow">
+                  <Rocket className="h-5 w-5" />
                 </div>
               </div>
               <div className="leading-tight">
-                <div className="font-semibold text-white tracking-wide">Scouthouse Studio</div>
-                <div className="text-xs text-emerald-100/80 flex items-center gap-1">
-                  <Leaf className="h-3 w-3" /> Dhaka • Global
+                <div className="font-semibold text-white tracking-wide">Nebula Studio</div>
+                <div className="text-xs text-white/70 flex items-center gap-1">
+                  <Sparkles className="h-3 w-3" /> 3D • Motion • Web
                 </div>
               </div>
             </a>
@@ -42,7 +42,7 @@ export default function Navigation() {
               ))}
               <a
                 href="#contact"
-                className="inline-flex items-center rounded-full bg-gradient-to-r from-emerald-500 to-green-600 px-4 py-2 text-sm font-medium text-white shadow hover:shadow-lg transition-shadow"
+                className="inline-flex items-center rounded-full bg-gradient-to-r from-fuchsia-500 to-indigo-600 px-4 py-2 text-sm font-medium text-white shadow hover:shadow-fuchsia-500/30 transition-shadow"
               >
                 Start a Project
               </a>
@@ -73,7 +73,7 @@ export default function Navigation() {
                 <a
                   href="#contact"
                   onClick={() => setOpen(false)}
-                  className="rounded-lg px-3 py-2 bg-gradient-to-r from-emerald-500 to-green-600 text-white"
+                  className="rounded-lg px-3 py-2 bg-gradient-to-r from-fuchsia-500 to-indigo-600 text-white"
                 >
                   Start a Project
                 </a>
